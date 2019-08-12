@@ -1,0 +1,63 @@
+Bar Graph
+	create arraylist of string type for x axis value
+		ArrayList<String> xAxisValues = new ArrayList<String>();
+	create arraylist of integer type for y axis value
+		ArrayList<Integer> bar1 = new ArrayList<Integer>();
+	create arraylist of integer type for 2nd value if 2bar graph
+		ArrayList<Integer> bar2 = new ArrayList<Integer>();
+	to set UI attribututes create object of ChartModel
+		ChartModel c = new ChartModel();
+			c.setGraphTitle("Demo Graph");
+			c.setxAxisTitle("Names");
+			c.setyAxisTitle("Demo Values");
+			c.setRow1("1st Value");
+			c.setRow2("2nd Value");
+			c.setGraphColor(Color.white);
+	Create FileOutputStream or u can send responce.getOutPutStream as a parameter
+			
+		BarChart.get3DBarChart(out, xAxisValues, bar1, bar2);
+	example
+		FileOutputStream out;
+		try {
+			out = new FileOutputStream(new File("D:\\barChartWrite.png"));
+			BarChart.get3DBarChart(out, xAxisValues, bar1, bar2);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+....................................................................................................................
+TimeSeriesGraph
+	create arraylist of date format
+		ArrayList<Date> days = new ArrayList<Date>();
+			days.add(new Date(2014, 1, 1));
+			days.add(new Date(2014, 3, 1));
+			days.add(new Date(2014, 5, 1));
+			days.add(new Date(2014, 7, 1));	
+	call:
+			try {
+				out = new FileOutputStream(new File("D:\\TimeSeriesChart1.png"));
+				TimeSeriesChart.getTimeSeriesGraph(out,  days, bar1);
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+.................................................................................................................
+PieChart:
+
+		try {
+			out = new FileOutputStream(new File("D:\\PieChart1.png"));
+			PieChart.getPieChart(out,  xAxisValues, bar1);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+......................................................................................................................
+LineChart
+		try {
+			out = new FileOutputStream(new File("D:\\LineChart1.png"));
+			LineChart.getLineChart(out, bar1, bar2);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
